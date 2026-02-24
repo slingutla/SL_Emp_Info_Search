@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 import re
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Any
 
 import psycopg2
@@ -13,7 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
 from pydantic import BaseModel
 
-load_dotenv()
+load_dotenv(Path(__file__).parent / ".env.local", override=True)
 
 # ---------------------------------------------------------------------------
 # Database helpers
